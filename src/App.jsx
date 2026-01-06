@@ -1,14 +1,13 @@
-import React from 'react'
-import button from './components/button/button'
 
-export const App = () => {
-  return (
-    <>
-      <h1>Hola, buen día!</h1>
-      <p>Bienvenido a mi aplicación React.</p>
-      <button/>
-    </>
-  )
+import Navbar from './components/NavBar/Navbar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+
+const App = () => {
+    return (
+        <>
+            <Navbar />
+            <ItemListContainer bienvenida="Bienvenido acá podres comprar todos los tickets para festivales, shows y fiestas 🚀" />
+        </>
+    )
 }
-
-export default App
+export default App;

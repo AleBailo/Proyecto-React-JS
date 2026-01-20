@@ -6,9 +6,18 @@ const misEventos = [
 ];
 
 export const getEventos = () => {
-    return new Promise ((resolve) => {
-        setTimeout (() => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
             resolve(misEventos);
         }, 2000);
-    })  ;
+    });
+}
+
+export const getUnEvento = (id) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const evento = misEventos.find(evento => evento.id === id);
+            resolve(evento);
+        }, 2000);
+    });
 }

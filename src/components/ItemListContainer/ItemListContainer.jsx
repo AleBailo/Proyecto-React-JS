@@ -1,17 +1,20 @@
 import "./ItemListContainer.css"
 import { useState, useEffect } from "react"
-import { getEventos } from "../../asyncmock"
+import { getEventos, getEventosPorCategoria } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom"
 
 const ItemListContainer = ({ bienvenida }) => {
 
     const [eventos, setEventos] = useState([])
+    const { idCategoria } = useParams()
 
     useEffect(() => {
-        getEventos()
+        const funcionEventos = idCategoria ? getEventosPorCategoria : getEventos
+
+        funcionEventos(idCategoria)
             .then(respuesta => setEventos(respuesta))
-            .catch(error => console.log(error))
-    }, [])
+    }, [idCategoria])
 
     return (
         <>

@@ -1,3 +1,26 @@
+
+
+/* Card general */
+.card {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #555;
+  
+}
+
+/* Precio */
+.card h6 {
+  color: #1db954; /* verde PassShow */
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Botón */
 .event-btn {
   background-color: #4caf50;
   border: none;
@@ -13,5 +36,5 @@
 }
 
 .event-btn:hover {
-  background-color: #45a049;
+  background-color: #157347;
 }

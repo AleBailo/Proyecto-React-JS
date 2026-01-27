@@ -3,3 +3,42 @@
     margin-right: 10px;
 }
 
+/* Input de búsqueda */
+.navbar .form-control {
+  background-color: #1a1919;
+  color: #000;
+  border: #555 solid 1px;
+}
+
+.navbar .form-control::placeholder {
+  color: #b8b6b6;
+}
+
+/* Botón Search */
+.navbar .btn-outline-success {
+  background-color: #4caf50; 
+  color: #fff;
+  border: none;
+}
+
+.navbar .btn-outline-success:hover {
+  background-color: #157347;
+  color: #fff;
+}
+
+/* Links del navbar */
+.navbar .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Hover */
+.navbar .nav-link:hover {
+  color: #1db954; 
+}
+
+/* Link activo */
+.navbar .nav-link.active {
+  color: #1db954;
+}

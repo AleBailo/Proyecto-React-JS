@@ -1,0 +1,54 @@
+.itemCount {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #0b0b0b;
+    border: 1px solid #222;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+/* Contador + - */
+.contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.contador button {
+    width: 60px;
+    height:  60px;
+    background-color: #1db954;
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.contador button:hover {
+    background-color: #157347;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.contador p {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 40px;
+    text-align: center;
+}
+
+/* Botón agregar */
+.btnAgregar {
+    width: 100%;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btnAgregar:hover {
+    background-color: #17a44a;
+}

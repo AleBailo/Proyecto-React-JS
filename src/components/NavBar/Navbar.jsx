@@ -6,7 +6,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">
                         <img src="./public/logo.png" alt="Logo" className="logo" />
@@ -20,8 +20,8 @@ const Navbar = () => {
                             <Link to="/categoria/festivales" className="nav-link">Festivales</Link>
                         </ul>
                         <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
+                            <input className="form-control me-2" type="search" placeholder="Buscar evento..." aria-label="Search" />
+                            <button className="btn btn-outline-success" type="submit">Buscar</button>
                         </form>
 
                         <CartWidget />

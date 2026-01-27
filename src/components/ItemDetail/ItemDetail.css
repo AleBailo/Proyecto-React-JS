@@ -1,10 +1,64 @@
-.contenedorItem {
-    text-align: center;
-    border: 1px solid grey;
-    border-radius: 6px;
-    margin: 4rem;
+
+/* Imagen banner */
+.contenedorItem img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
 }
 
-img {
-    width: 35vh;
-}   
+/* Título */
+.contenedorItem h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Fecha y precio */
+.contenedorItem h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #ccc;
+  margin-bottom: 0.3rem;
+}
+
+/* Precio destacado */
+.contenedorItem h4:last-of-type {
+  color: #1db954;
+  font-weight: bold;
+}
+
+/* Descripción */
+.contenedorItem p {
+  margin-top: 1.5rem;
+  max-width: 700px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Contenedor inferior (info + compra) */
+.contenedorItem > div:last-child,
+.contenedorItem > a {
+  margin-top: 2rem;
+}
+
+/* Caja de compra (ItemCount o botón) */
+.contenedorItem a,
+.contenedorItem button {
+  display: inline-block;
+  background-color: #000;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Hover */
+.contenedorItem a:hover,
+.contenedorItem button:hover {
+  background-color: #1db954;
+  color: #000;
+  transition: 0.3s ease;
+}

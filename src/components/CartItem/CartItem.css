@@ -1,0 +1,40 @@
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  border-bottom: 1px solid #222;
+  color: #fff;
+}
+
+/* Info */
+.cartItemInfo h4 {
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.cartItemInfo p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.cartItemInfo span {
+  color: #1db954;
+  font-weight: bold;
+}
+
+/* Botón eliminar */
+.btnEliminar {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btnEliminar:hover {
+  background-color: #b02a37;
+  color: #fff;
+}

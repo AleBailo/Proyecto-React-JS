@@ -1,8 +1,10 @@
 import "./ItemListContainer.css"
 import { useState, useEffect } from "react"
-import { getEventos, getEventosPorCategoria } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
+import { db } from "../../service/config"
+import { collection, getDocs, query, where } from "firebase/firestore"
+
 
 const ItemListContainer = ({ bienvenida }) => {
 
@@ -10,10 +12,18 @@ const ItemListContainer = ({ bienvenida }) => {
     const { idCategoria } = useParams()
 
     useEffect(() => {
-        const funcionEventos = idCategoria ? getEventosPorCategoria : getEventos
+        const misProductos = idCategoria ? query(collection(db, "eventos"), where("idCat", "==", idCategoria)) : collection(db, "eventos")
 
-        funcionEventos(idCategoria)
-            .then(respuesta => setEventos(respuesta))
+        getDocs(misProductos)
+            .then(res => {
+                const nuevosEventos = res.docs.map(doc => {
+                    const data = doc.data()
+                    return { id: doc.id, ...data }
+
+                })
+                setEventos(nuevosEventos)
+            })
+            .catch(error => console.log(error))
     }, [idCategoria])
 
     return (

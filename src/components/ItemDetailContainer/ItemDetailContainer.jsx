@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getUnEvento } from '../../asyncmock';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import { db } from "../../service/config"
+import { getDoc, doc } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
 
@@ -9,9 +10,20 @@ const ItemDetailContainer = () => {
     const { idItem } = useParams();
 
     useEffect(() => {
-        getUnEvento(idItem)
-            .then(respuesta => setEvento(respuesta))
-    }, [idItem]);
+        const nuevoDoc = doc(db, "eventos", idItem)
+
+        getDoc(nuevoDoc)
+            .then(res => {
+                const data = res.data()
+                console.log(data)
+                const nuevoEvento = { id: res.id, ...data }
+                console.log(nuevoEvento)
+                setEvento(nuevoEvento)
+            })
+            .catch(error => console.log(error))
+
+
+    }, [idItem])
 
     return (
         <div>

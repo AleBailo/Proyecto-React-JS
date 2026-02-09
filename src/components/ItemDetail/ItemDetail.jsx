@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 
 
-const ItemDetail = ({ id, nombre, precio, fecha, img, stock }) => {
+const ItemDetail = ({ id, nombre, precio, fecha, ubicacion, img, stock }) => {
 
     //Estado local con la cantidad de productos agregados
     const [agregarCantidad, setAgregarCantidad] = useState(0);
@@ -30,8 +30,8 @@ const ItemDetail = ({ id, nombre, precio, fecha, img, stock }) => {
         <div className='contenedorItem'>
             <img src={img} alt={nombre} />
             <h2>{nombre}</h2>
-            <h4>🗓️ {fecha}</h4>
-            <h4>📍 {id}</h4>
+            <h4>🗓️ {fecha?.toDate().toLocaleDateString()}</h4>
+            <h4>📍 {ubicacion}</h4>
             <h4>Precio: ${precio}</h4>
 
             <p>

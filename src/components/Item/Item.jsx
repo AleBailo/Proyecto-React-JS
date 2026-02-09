@@ -8,7 +8,7 @@ const Item = ({ id, nombre, precio, fecha, img }) => {
             <img src={img} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title"> {nombre}</h5>
-                    <p className="card-text">{fecha}</p>
+                    <p className="card-text">{fecha?.toDate().toLocaleDateString()}</p>
                     <h6 className="card-title"> {precio}</h6>
                     <Link to={`/item/${id}`} className="btn btn-primary event-btn">Ir al evento</Link>
                 </div>

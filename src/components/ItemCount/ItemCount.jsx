@@ -5,7 +5,6 @@ const ItemCount = ({stock, inicial, funcionAgregar}) => {
     const [contador, setContador] = useState(inicial);
 
     // Función para agregar o sacar cantidad
-
     const incrementar = () => {
         if (contador < stock) {
             setContador(contador + 1);

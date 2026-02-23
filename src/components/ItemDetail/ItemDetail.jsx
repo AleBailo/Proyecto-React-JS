@@ -4,12 +4,12 @@ import { useState } from "react"
 import { Link } from "react-router-dom";
 import { CarritoContext } from "../../context/CarritoContext";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 
 
-const ItemDetail = ({ id, nombre, precio, fecha, ubicacion, img, stock }) => {
+const ItemDetail = ({ id, nombre, precio, fecha, ubicacion, img, stock, descripcion }) => {
 
-    //Estado local con la cantidad de productos agregados
     const [agregarCantidad, setAgregarCantidad] = useState(0);
 
     const {agregarAlCarrito} = useContext(CarritoContext);
@@ -17,14 +17,15 @@ const ItemDetail = ({ id, nombre, precio, fecha, ubicacion, img, stock }) => {
     // Función manejadora de la cantidad
     const manejadorCantidad = (cantidad) => {
         setAgregarCantidad(cantidad);
-        console.log("Productos agregados: " + cantidad);
 
         const item = { id, nombre, precio };
         agregarAlCarrito(item, cantidad);
+        toast.success(`Se agregaron productos al carrito!`, {
+            position: "top-right",
+            autoClose: 3000,
+            theme: "colored"
+        });
     }
-
-
-
 
     return (
         <div className='contenedorItem'>
@@ -34,12 +35,8 @@ const ItemDetail = ({ id, nombre, precio, fecha, ubicacion, img, stock }) => {
             <h4>📍 {ubicacion}</h4>
             <h4>Precio: ${precio}</h4>
 
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-                veritatis, dolorem consequatur blanditiis maxime esse ipsum error sed
-                laboriosam optio eveniet laudantium animi corrupti tenetur, illum
-                voluptas veniam saepe facere.
-            </p>
+            <p>{descripcion}</p>
+            
 
             {/* Empleamos la logica de montaje y desmontaje del contador */}
 

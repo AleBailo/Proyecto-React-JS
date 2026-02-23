@@ -4,14 +4,17 @@ import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import { db } from "../../service/config"
 import { collection, getDocs, query, where } from "firebase/firestore"
+import Loader from "../Loader/Loader"
 
 
 const ItemListContainer = ({ bienvenida }) => {
 
     const [eventos, setEventos] = useState([])
+    const [loading, setLoading] = useState(false)
     const { idCategoria } = useParams()
 
     useEffect(() => {
+        setLoading(true)
         const misProductos = idCategoria ? query(collection(db, "eventos"), where("idCat", "==", idCategoria)) : collection(db, "eventos")
 
         getDocs(misProductos)
@@ -24,16 +27,18 @@ const ItemListContainer = ({ bienvenida }) => {
                 setEventos(nuevosEventos)
             })
             .catch(error => console.log(error))
+            .finally(() => {
+                console.log("Proceso de carga finalizado")
+                setLoading(false)
+            })
     }, [idCategoria])
 
     return (
         <>
             <div className="textoBienvenida">{bienvenida}
             </div>
-
             <h4 className="textoSubtitulo">Próximos Eventos</h4>
-            <ItemList eventos={eventos} />
-
+            {loading ? <Loader /> : <ItemList eventos={eventos} />}
         </>
     )
 }

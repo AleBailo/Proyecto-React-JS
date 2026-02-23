@@ -1,5 +1,5 @@
 import Item from '../Item/Item'
-import "./ItemList.css"
+import "./itemList.css"
 
 const ItemList = ({ eventos }) => {
   
